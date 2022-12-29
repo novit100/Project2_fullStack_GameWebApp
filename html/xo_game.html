@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../style/xo_game.css">
+  
+  <title>XO Game</title>
+</head>
+<body>
+
+<!-- Navbar Section -->
+<nav class="navbar">
+    <div class="navbar__container">
+      
+      <ul class="navbar__menu">
+        <li class="navbar__item">
+          <a href="#home" class="navbar__links" id="home-page">בית</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#instructions" class="navbar__links" id="instructions-page">הוראות</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#highlight" class="navbar__links" id="highlight-page">שיאים</a>
+        </li>
+        <li class="navbar__item">
+            <a href="#play" class="navbar__links" id="play-page">שחק</a>
+          </li>
+        <li class="navbar__item">
+          <a href="/html/sign_in_up.html" class="navbar__links" id="signup">יציאה</a>
+        </li>
+      </ul>
+      <div class="navbar__toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+        <a href="#home" id="user-name" >שלום לך </a>
+    </div>
+  </nav>
+
+
+<!-- tic tac tie board -->
+  <div class="board" id="board">
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+  </div>
+  <div class="winning-message" id="winningMessage">
+    <div data-winning-message-text></div>
+    <button id="restartButton">שחק שוב</button>
+  </div>
+  
+  
+  
+  <script src="../script/xo_game.js" ></script>
+</body>
+</html>
