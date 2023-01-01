@@ -15,7 +15,7 @@ signInBtnLink.addEventListener('click', () => {
 
 //  <-- Sign Up -->
 function signUp(e) {
-    sername = document.getElementById('user-name').value,
+    username = document.getElementById('user-name').value,
         email = document.getElementById('email').value,
         pwd = document.getElementById('pwd').value;
 
@@ -58,10 +58,14 @@ function signIn(e) {
         handleIncorrectLogin(username);
     }
     else {
-        //location.href = "../html/home.html";
+
+        //document.cookie= "currentUser="+username;
+
+        //insert user name to cookie ant expire time after 1 session
+        document.cookie = "currentUser=" + username + "; expires=Thu, 18 Dec 2013 12:00:00 UTC";
         localStorage.setItem('currentUser', JSON.stringify(username));
         location.href = "../html/xo_game.html";
-
+        //location.href = "../html/home.html";
     }
     e.preventDefault();
 }

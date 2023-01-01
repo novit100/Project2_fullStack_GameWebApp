@@ -127,63 +127,55 @@ body {
   border-bottom: none;
 }
 
-.cell.x,
-.cell.circle {
-  cursor: not-allowed;
+.cell.x{
+  background: url(../imgs/x.png) no-repeat center / 50%;
 }
 
-.cell.x::before,
+.cell.circle{
+  background: url(../imgs/o.png) no-repeat center / 60%;
+}
+
+.cell.x,
+.cell.circle {
+  cursor: no-drop;
+}
+
+
 .cell.x::after,
 .cell.circle::before {
   background-color: black;
 }
 
 .board.x .cell:not(.x):not(.circle):hover::before,
-.board.x .cell:not(.x):not(.circle):hover::after,
-.board.circle .cell:not(.x):not(.circle):hover::before {
-  background-color: rgb(56, 55, 55);
+.board.x .cell:not(.x):not(.circle):hover::after{
+  background: url(../imgs/x.png) no-repeat center / 50%;
+  opacity: .5;
 }
-
-.cell.x::before,
-.cell.x::after,
-.board.x .cell:not(.x):not(.circle):hover::before,
-.board.x .cell:not(.x):not(.circle):hover::after {
-  content: '';
-  position: absolute;
-  width: calc(var(--mark-size) * .15);
-  height: var(--mark-size);
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  background: url(../imgs/o.png) no-repeat center / 60%;
+  opacity: .5;
 }
 
 .cell.x::before,
 .board.x .cell:not(.x):not(.circle):hover::before {
-  transform: rotate(45deg);
-}
-
-.cell.x::after,
-.board.x .cell:not(.x):not(.circle):hover::after {
-  transform: rotate(-45deg);
-}
-
-.cell.circle::before,
-.cell.circle::after,
-.board.circle .cell:not(.x):not(.circle):hover::before,
-.board.circle .cell:not(.x):not(.circle):hover::after {
   content: '';
+  background: url(../imgs/x.png) no-repeat center / 50%;
+  opacity: .5;
   position: absolute;
-  border-radius: 50%;
-}
-
-.cell.circle::before,
-.board.circle .cell:not(.x):not(.circle):hover::before {
-  width: var(--mark-size);
+  width: calc(var(--mark-size));
   height: var(--mark-size);
 }
 
-.cell.circle::after,
-.board.circle .cell:not(.x):not(.circle):hover::after {
-  width: calc(var(--mark-size) * .7);
-  height: calc(var(--mark-size) * .7);
-  background-color: #fff;
+
+.cell.circle::before,
+.board.circle .cell:not(.x):not(.circle):hover::before{
+  content: '';
+  background: url(../imgs/o.png) no-repeat center / 63%;
+  opacity: .5;
+  position: absolute;
+  width: calc(var(--mark-size));
+  height: var(--mark-size);
 }
 
 /* winning message */
