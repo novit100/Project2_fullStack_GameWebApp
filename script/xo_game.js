@@ -14,17 +14,49 @@ const cellElements = document.querySelectorAll('.cell')
 let gridArray = Array.from(cellElements);
 let tracking;
 const board = document.getElementById('board')
+
+// <-- code for html elements -->
 const winningMessageElement = document.getElementById('winningMessage')
 const restartButton = document.getElementById('restartButton')
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
 const userName = document.getElementById('user-name')
-const Uname = JSON.parse(localStorage.getItem('currentUser'));
-let circleTurn
+const Uname = document.cookie.split('=')[1] || JSON.parse(localStorage.getItem('currentUser'));
 userName.innerText += " " + Uname;
-startGame()
+const signOut = document.getElementById('sign-out');
+
+// <-- code for score elments-->
+const scoreX = document.getElementById('score-x');
+const scoreO = document.getElementById('score-o');
+const scoreDraw = document.getElementById('score-draw');
+const scoreScaling = document.getElementById('score-scaling');
+
+// <-- code for score variables get out from local storage from to: -->
+let formData = JSON.parse(localStorage.getItem('formData')) || [];
+let exist = formData.length && JSON.parse(localStorage.getItem('formData'))
+  .some(data => data.username.toLowerCase() == Uname.toLowerCase());
+
+index = formData.findIndex(data => data.username.toLowerCase() == Uname.toLowerCase());
+let scoreXValue = exist ? formData[index]['scoreX'] : 0;
+let scoreOValue = exist ? formData[index]['scoreO'] : 0;
+let scoreDrawValue = exist ? formData[index]['scoreDraw'] : 0;
+let scoreScalingValue = exist ? formData[index]['scoreScaling'] : 0;
+
+scoreX.innerText = scoreXValue;
+scoreO.innerText = scoreOValue;
+scoreDraw.innerText = scoreDrawValue;
+scoreScaling.innerText = scoreScalingValue;
+
+
+
+// <-- delete cookie when user click on sign out -->
+signOut.addEventListener('click', () => {
+  document.cookie = "currentUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+});
 
 restartButton.addEventListener('click', startGame)
+let circleTurn
 
+startGame()
 function startGame() {
   //reset the board
   reset();
@@ -96,11 +128,18 @@ function reset() {
 function endGame(draw) {
   if (draw) {
     winningMessageTextElement.innerText = 'תיקו!'
+    end_with_draw();
   } else {
     winningMessageTextElement.innerText = `הניצחון של ${circleTurn ? "O" : "X"} !`
+    if (circleTurn) {
+      winO();
+    } else {
+      winX();
+    }
   }
   winningMessageElement.classList.add('show')
 }
+
 
 function isDraw() {
   return [...cellElements].every(cell => {
@@ -129,4 +168,51 @@ function setBoardHoverClass() {
   } else {
     board.classList.add(X_CLASS)
   }
+}
+
+// <-- code for score -->
+
+//<-- draw -->
+function end_with_draw() {
+  //store the score in local storage in the formData table in user index in scoreDraw value.
+  formData[index]['scoreDraw']++;
+  localStorage.setItem('formData', JSON.stringify(formData));
+
+  //store the score in local storage in the formData table in user index in scoreScaling value.
+  formData[index]['scoreScaling']<3?0:formData[index]['scoreScaling'] -=2;
+  localStorage.setItem('formData', JSON.stringify(formData));
+
+  //update the score in html.
+  scoreDraw.innerText = formData[index]['scoreDraw'];
+  scoreScaling.innerText = formData[index]['scoreScaling'];
+}
+
+//<-- wining x -->
+function winX() {
+  //store the score in local storage in the formData table in user index in scoreX value.
+  formData[index]['scoreX']++;
+  localStorage.setItem('formData', JSON.stringify(formData));
+
+  //store the score in local storage in the formData table in user index in scoreScaling value.
+  formData[index]['scoreScaling'] += 3;
+  localStorage.setItem('formData', JSON.stringify(formData));
+
+  //update the score in html.
+  scoreX.innerText = formData[index]['scoreX'];
+  scoreScaling.innerText = formData[index]['scoreScaling'];
+}
+
+//<-- wining o -->
+function winO() {
+  //store the score in local storage in the formData table in user index in scoreO value.
+  formData[index]['scoreO']++;
+  localStorage.setItem('formData', JSON.stringify(formData));
+
+  //store the score in local storage in the formData table in user index in scoreScaling value.
+  formData[index]['scoreScaling'] <3 ? 0 : formData[index]['scoreScaling']-= 3;
+  localStorage.setItem('formData', JSON.stringify(formData));
+
+  //update the score in html.
+  scoreO.innerText = formData[index]['scoreO'];
+  scoreScaling.innerText = formData[index]['scoreScaling'];
 }

@@ -83,11 +83,43 @@ body {
   width: 100%;
 }
 
+/* score section */
+.score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.score__title {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.score__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.score__number {
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+}
+
+
 
 /* main section */
 .board {
   width: 100vw;
-  height: 100vh;
+  height: 60vh;
   display: grid;
   justify-content: center;
   align-content: center;

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../style/xo_game.css">
-  
+  <link rel="icon" href="../imgs/x_o_icon.png" type="image/x-icon"  sizes="32*32"/>
   <title>XO Game</title>
 </head>
 <body>
@@ -28,7 +28,7 @@
             <a href="#play" class="navbar__links" id="play-page">שחק</a>
           </li>
         <li class="navbar__item">
-          <a href="/html/sign_in_up.html" class="navbar__links" id="signup">יציאה</a>
+          <a href="sign_in_up.html" class="navbar__links" id="sign-out">יציאה</a>
         </li>
       </ul>
       <div class="navbar__toggle" id="mobile-menu">
@@ -40,6 +40,27 @@
     </div>
   </nav>
 
+<!-- score div -->
+<div class="score">
+    <div class="score__container">
+      <div class="score__item">
+        <div class="score__title">נצחונות</div>
+        <div class="score__number" id="score-x">0</div>
+      </div>
+      <div class="score__item">
+        <div class="score__title">הפסדים</div>
+        <div class="score__number" id="score-o">0</div>
+      </div>
+      <div class="score__item">
+        <div class="score__title">תיקו</div>
+        <div class="score__number" id="score-draw">0</div>
+      </div>
+      <div class="score__item">
+        <div class="score__title">דירוג</div>
+        <div class="score__number" id="score-scaling">0</div>
+      </div>
+    </div>
+  </div>
 
 <!-- tic tac tie board -->
   <div class="board" id="board">

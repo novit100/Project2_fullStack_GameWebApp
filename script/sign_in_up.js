@@ -28,11 +28,12 @@ function signUp(e) {
         );
 
     if (!exist) {
-        formData.push({ username, email, pwd });
+        formData.push({ username, email, pwd , 'scoreX':0, 'scoreO':0, 'scoreDraw':0, 'scoreScaling':0 });
         localStorage.setItem('formData', JSON.stringify(formData));
         document.querySelector('form').reset();
         document.getElementById('user-name').focus();
         alert("Account Created.\n\nPlease Sign In.");
+        signInBtnLink.click();
     }
     else {
         alert("Ooopppssss... Duplicate found!!!\nYou have already sigjned up");
@@ -61,8 +62,13 @@ function signIn(e) {
 
         //document.cookie= "currentUser="+username;
 
-        //insert user name to cookie ant expire time after 1 session
-        document.cookie = "currentUser=" + username + "; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+        // <-- insert user name in cookie for 10 minutes -->
+        let d = new Date();
+        d.setTime(d.getTime() + (10 * 60 * 1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = "currentUser=" + username + ";" + expires + ";path=/";
+
+        // <-- insert user name in local storage -->
         localStorage.setItem('currentUser', JSON.stringify(username));
         location.href = "../html/xo_game.html";
         //location.href = "../html/home.html";
@@ -80,7 +86,7 @@ function handleIncorrectLogin(username) {
         );
 
     if (!exist) {
-        incorrectLogin.push({ username, count: 1 });
+        incorrectLogin.push({ username, count: 1});
         localStorage.setItem('incorrectLogin', JSON.stringify(incorrectLogin));
     }
     else {
