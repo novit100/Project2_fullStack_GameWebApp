@@ -83,6 +83,21 @@ body {
   width: 100%;
 }
 
+.user__erea {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 100%;
+  height: 100%;
+}
+
+#user-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  padding-left: 3px;
+}
+
 /* score section */
 .score {
   display: flex;
