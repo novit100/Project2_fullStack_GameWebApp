@@ -9,6 +9,10 @@ const SPEED_SCALE_INCREASE = 0.00001
 const worldElem = document.querySelector("[data-world]")
 const scoreElem = document.querySelector("[data-score]")
 const startScreenElem = document.querySelector("[data-start-screen]")
+const Uname = document.cookie.split('=')[1] || JSON.parse(localStorage.getItem('currentUser'));
+
+//creat table in local storage for the high score with user name
+localStorage.setItem("highScore",{name: "user", score: 0})
 
 //call func
 setPixelToWorldScale()
@@ -74,6 +78,13 @@ function handleStart() {
 
 function handleLose() {
   setDinoLose() //img of dino losing
+
+  //store the score in local storage
+  const highScore = localStorage.getItem("highScore")
+  if (highScore == null || highScore < score) {
+    localStorage.setItem("highScore", {user: Uname, score: score})
+  }
+
   //starting from the game from begining
   setTimeout(() => {
     document.addEventListener("keydown", handleStart, { once: true })
