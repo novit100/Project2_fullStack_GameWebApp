@@ -106,17 +106,6 @@
         border-radius: 10px;
     }
 
-    .table__container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 0 50px;
-    }
-
     .table__title {
         font-size: 1.5rem;
         margin-bottom: 20px;
