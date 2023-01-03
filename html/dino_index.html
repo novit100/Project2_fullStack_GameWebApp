@@ -7,8 +7,31 @@
   <title>Document</title>
   <link rel="stylesheet" href="../style/styles.css">
   <script src="../script/script.js" type="module"></script>
+  <link rel="stylesheet" href="../style/homePage.css">
 </head>
 <body>
+   <!-- Navbar Section -->
+   <nav class="navbar">
+    <div class="navbar__container">
+
+        <ul class="navbar__menu">
+            <div class="user__erea">
+            <img id="user-icon" src="../imgs/user_icon.png" alt="user_icon">
+            <a href="homePage.html" id="user-name">שלום,</a>
+        </div>
+            <li class="navbar__item">
+                <a href="#" class="navbar__links" id="home-page">בית</a>
+            </li>
+            <li class="navbar__item">
+                <a href="highlight.html" class="navbar__links" id="highlight-page">שיאים</a>
+            </li>
+            <li class="navbar__item">
+                <a href="sign_in_up.html" class="navbar__links" id="sign-out">הרשמה/יציאה</a>
+            </li>
+        </ul>
+        
+    </div>
+</nav>
   <div class="world" data-world>
     <div class="score" data-score>0</div>
     <div class="start-screen" data-start-screen>Press Any Key To Start</div>
