@@ -1,12 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/highlight.css">
     <title>Document</title>
 </head>
+
 <body>
-    
+
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="navbar__container">
+
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="homePage.html" class="navbar__links" id="home-page">בית</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="instructions_xo_game.html" class="navbar__links" id="instructions-page">הוראות</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="highlight.html" class="navbar__links" id="highlight-page">שיאים</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="sign_in_up.html" class="navbar__links" id="sign-out">יציאה</a>
+                </li>
+            </ul>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="user__erea">
+                <img id="user-icon" src="../imgs/user_icon.png" alt="user_icon">
+                <a href="homePage.html" id="user-name">שלום,</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- highscores table for tic tac toe game for all tha players  -->
+    <table id="highscores">
+        <tr>
+            <th class="player__name__title table__title">Player Name</th>
+            <th class="score__title table__title">Score</th>
+        </tr>
+        <tr >
+            <td class="player__name table__row" >player1</td>
+            <td class="score table__row">10</td>
+        </tr>
+        <tr>
+            <td class="player__name table__row">player2</td>
+            <td class="score table__row">9</td>
+        </tr>
+        <tr>
+            <td class="player__name table__row">player3</td>
+            <td class="score table__row">8</td>
+        </tr>
+    </table>
+
+
+
+
 </body>
+
 </html>
