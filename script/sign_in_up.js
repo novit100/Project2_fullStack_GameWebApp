@@ -2,7 +2,9 @@ const signUpBtnLink = document.querySelector('.signUpBtn-link');
 const signInBtnLink = document.querySelector('.signInBtn-link');
 const wrapper = document.querySelector('.wrapper');
 const signUpForm = document.getElementById('signUpForm');
-
+const userName = document.getElementById('user-name')
+const Uname = document.cookie.split('=')[1] || JSON.parse(localStorage.getItem('currentUser'));
+userName.innerText += " " + Uname;
 
 
 signUpBtnLink.addEventListener('click', () => {
@@ -70,8 +72,7 @@ function signIn(e) {
 
         // <-- insert user name in local storage -->
         localStorage.setItem('currentUser', JSON.stringify(username));
-        location.href = "../html/xo_game.html";
-        //location.href = "../html/home.html";
+        location.href = "../html/homePage.html";
     }
     e.preventDefault();
 }
